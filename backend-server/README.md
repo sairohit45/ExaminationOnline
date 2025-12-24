@@ -42,7 +42,7 @@ npm install express mysql2 cors
 3. Update the database credentials in `server.js`:
 ```javascript
 const dbConfig = {
-  host: 'localhost',
+  host: 'mysql.railway.internal',
   user: 'root',
   password: 'your_password_here',  // Change this!
   database: 'exam_db'
@@ -54,7 +54,7 @@ const dbConfig = {
 node server.js
 ```
 
-The server will run on `http://localhost:3001`
+The server will run on `http://mysql.railway.internal:3001`
 
 ## API Endpoints
 

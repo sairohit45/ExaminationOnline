@@ -27,7 +27,7 @@ app.get("/", (req, res) => {
 // MySQL Connection
 // ===============================
 const pool = mysql.createPool({
-  host: "localhost",
+  host: "mysql.railway.internal",
   user: "root",
   password: "password",   // 🔴 change if needed
   database: "exam_db",
@@ -138,6 +138,6 @@ app.get("/api/responses", async (req, res) => {
 // ===============================
 app.listen(PORT, () => {
   console.log("=================================");
-  console.log(`✅ Server running on http://localhost:${PORT}`);
+  console.log(`✅ Server running on http://mysql.railway.internal:${PORT}`);
   console.log("=================================");
 });
