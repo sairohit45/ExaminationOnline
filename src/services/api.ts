@@ -1,5 +1,5 @@
 // API Configuration - Update this with your backend server URL
-const API_BASE_URL = "http://mysql.railway.internal:3001/api";
+const API_BASE_URL = "http://localhost:3001/api";
 // const API_BASE_URL = "https://exam-server-production-899c.up.railway.app/api";
 // const API_BASE_URL = "https://exam-server-6wez.vercel.app/api";
 
