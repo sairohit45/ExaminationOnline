@@ -37,7 +37,7 @@ const ExamPage = () => {
     // Submit to API
     if (studentInfo) {
       await submitExamResponse({
-        rollNumber: studentInfo.rollNumber,
+        roll_number: studentInfo.roll_number,
         name: studentInfo.name,
         department: studentInfo.department,
         section: studentInfo.section,

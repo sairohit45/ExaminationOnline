@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, ReactNode } from "react";
 
 interface StudentInfo {
-  rollNumber: string;
+  roll_number: string;
   name: string;
   department: string;
   section: string;

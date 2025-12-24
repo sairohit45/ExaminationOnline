@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { useExam } from "../context/ExamContext";
-import { checkRollNumber } from "../services/api";
+import { checkroll_number } from "../services/api";
 import { toast } from "sonner";
 import gnitsLogo from "../assets/gnits-logo.webp";
 
 const RegistrationPage = () => {
   const { setStudentInfo, setCurrentPage } = useExam();
   const [formData, setFormData] = useState({
-    rollNumber: "",
+    roll_number: "",
     name: "",
     department: "",
     section: "",
@@ -15,21 +15,21 @@ const RegistrationPage = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const validateRollNumber = (value: string): boolean => {
+  const validateroll_number = (value: string): boolean => {
     // Must be exactly 10 characters, alphanumeric, uppercase only
     const regex = /^[A-Z0-9]{10}$/;
     return regex.test(value);
   };
 
-  const handleRollNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleroll_numberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, "").slice(0, 10);
-    setFormData({ ...formData, rollNumber: value });
+    setFormData({ ...formData, roll_number: value });
     
-    if (value && !validateRollNumber(value)) {
-      setErrors({ ...errors, rollNumber: "Roll number must be 10 alphanumeric characters (A-Z, 0-9)" });
+    if (value && !validateroll_number(value)) {
+      setErrors({ ...errors, roll_number: "Roll number must be 10 alphanumeric characters (A-Z, 0-9)" });
     } else {
       const newErrors = { ...errors };
-      delete newErrors.rollNumber;
+      delete newErrors.roll_number;
       setErrors(newErrors);
     }
   };
@@ -39,10 +39,10 @@ const RegistrationPage = () => {
     
     const newErrors: Record<string, string> = {};
     
-    if (!formData.rollNumber) {
-      newErrors.rollNumber = "Roll number is required";
-    } else if (!validateRollNumber(formData.rollNumber)) {
-      newErrors.rollNumber = "Roll number must be 10 alphanumeric characters";
+    if (!formData.roll_number) {
+      newErrors.roll_number = "Roll number is required";
+    } else if (!validateroll_number(formData.roll_number)) {
+      newErrors.roll_number = "Roll number must be 10 alphanumeric characters";
     }
     
     if (!formData.name.trim()) {
@@ -65,7 +65,7 @@ const RegistrationPage = () => {
     setIsSubmitting(true);
     
     try {
-      const exists = await checkRollNumber(formData.rollNumber);
+      const exists = await checkroll_number(formData.roll_number);
       if (exists) {
         toast.error("This roll number has already submitted the exam!");
         setIsSubmitting(false);
@@ -118,15 +118,15 @@ const RegistrationPage = () => {
                 </label>
                 <input
                   type="text"
-                  value={formData.rollNumber}
-                  onChange={handleRollNumberChange}
+                  value={formData.roll_number}
+                  onChange={handleroll_numberChange}
                   placeholder="e.g., 23251A6601"
                   className={`w-full px-4 py-3 rounded-lg border-2 bg-background text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary transition-all duration-200 uppercase ${
-                    errors.rollNumber ? "border-destructive" : "border-input hover:border-primary/50"
+                    errors.roll_number ? "border-destructive" : "border-input hover:border-primary/50"
                   }`}
                 />
-                {errors.rollNumber && (
-                  <p className="text-destructive text-sm mt-1">{errors.rollNumber}</p>
+                {errors.roll_number && (
+                  <p className="text-destructive text-sm mt-1">{errors.roll_number}</p>
                 )}
                 <p className="text-muted-foreground text-xs mt-1">
                   10 characters, letters and numbers only (e.g., 23251A6601)

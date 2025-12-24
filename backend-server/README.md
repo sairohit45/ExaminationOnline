@@ -62,7 +62,7 @@ The server will run on `http://localhost:3001`
 |--------|----------|-------------|
 | GET | `/api/test` | Test database connection |
 | POST | `/api/submit-exam` | Submit exam response |
-| GET | `/api/check-roll/:rollNumber` | Check if roll number exists |
+| GET | `/api/check-roll/:roll_number` | Check if roll number exists |
 | GET | `/api/responses` | Get all responses (admin) |
 | GET | `/api/stats` | Get exam statistics |
 

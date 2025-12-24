@@ -37,7 +37,7 @@ const ResultPage = () => {
               </div>
               <div>
                 <p className="text-muted-foreground">Roll Number</p>
-                <p className="font-semibold text-foreground">{studentInfo.rollNumber}</p>
+                <p className="font-semibold text-foreground">{studentInfo.roll_number}</p>
               </div>
               <div>
                 <p className="text-muted-foreground">Department</p>

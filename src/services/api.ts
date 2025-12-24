@@ -1,9 +1,10 @@
 // API Configuration - Update this with your backend server URL
 const API_BASE_URL = "http://localhost:3001/api";
+// const API_BASE_URL = "https://exam-server-production-899c.up.railway.app/api";
 // const API_BASE_URL = "https://exam-server-6wez.vercel.app/api";
 
 export interface ExamResponse {
-  rollNumber: string;
+  roll_number: string;
   name: string;
   department: string;
   section: string;
@@ -27,7 +28,7 @@ export const submitExamResponse = async (response: ExamResponse): Promise<ApiRes
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        roll_number: response.rollNumber,
+        roll_number: response.roll_number,
         name: response.name,
         department: response.department,
         section: response.section,
@@ -64,7 +65,7 @@ export const submitExamResponse = async (response: ExamResponse): Promise<ApiRes
 };
 
 // Check if roll number already exists - always return false to allow multiple attempts
-export const checkRollNumber = async (rollNumber: string): Promise<boolean> => {
+export const checkroll_number = async (roll_number: string): Promise<boolean> => {
   // Allow same roll number to take exam multiple times
   return false;
 };
