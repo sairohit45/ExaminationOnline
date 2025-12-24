@@ -8,7 +8,7 @@ export interface Question {
 export const examQuestions: Question[] = [
   {
     id: 1,
-    question: "What does AI stands?",
+    question: "What does AI stands for?",
     options: ["Artificial Intelligence", "Automated Integration", "Advanced Interface", "Applied Informatics"],
     correctAnswer: 0
   },
